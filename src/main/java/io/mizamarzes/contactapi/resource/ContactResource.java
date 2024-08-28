@@ -29,7 +29,6 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/contacts")
 @RequiredArgsConstructor
 public class ContactResource {
-    
     private final ContactService contactService;
 
     @PostMapping
@@ -54,8 +53,6 @@ public class ContactResource {
     public ResponseEntity<String> uploadPhoto(@RequestParam("id") String id, @RequestParam("file")MultipartFile file) {
         return ResponseEntity.ok().body(contactService.uploadPhoto(id, file));
     }
-
-
 
     @GetMapping(path = "/image/{filename}", produces = { IMAGE_PNG_VALUE, IMAGE_JPEG_VALUE })
     public byte[] getPhoto(@PathVariable("filename") String filename) throws IOException {
